@@ -31,6 +31,11 @@ insert into t_role(id,name) values (1,'学生');
 insert into t_role(id,name) values (2,'老师');
 insert into t_role(id,name) values (3,'管理员');
 
+insert into t_user_role(id,user_id,role_id) values (1,1,1);
+insert into t_user_role(id,user_id,role_id) values (2,1,2);
+insert into t_user_role(id,user_id,role_id) values (3,1,3);
+
+
 insert into t_permission(id,name , role_id) values (1,'登录用户', 1);
 insert into t_permission(id,name , role_id) values (2,'登录用户', 2);
 insert into t_permission(id,name , role_id) values (3,'上传课程', 2);

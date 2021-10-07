@@ -6,6 +6,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -30,5 +31,13 @@ public class User {
 
     @Column(name = "status")
     private String status;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "t_user_role",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private List<Role> roleList;
 
 }
