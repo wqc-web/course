@@ -1,5 +1,6 @@
 package com.self.course.controller;
 
+import com.self.course.annotation.Admin;
 import com.self.course.dao.SessionRepository;
 import com.self.course.dao.UserRepository;
 import com.self.course.entity.Session;
@@ -79,4 +80,9 @@ public class LoginController {
         return selfBean;
     }
 
+    @Admin
+    @GetMapping("/admin")
+    public User admin() {
+        return UserContext.getUser();
+    }
 }
