@@ -14,9 +14,4 @@ public class SelfConfig {
         return new SelfBean("SelfBean" + UUID.randomUUID().toString());
     }
 
-    @Bean
-    UserInterceptor userInterceptor() {
-        return new UserInterceptor();
-    }
-
 }
