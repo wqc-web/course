@@ -9,22 +9,25 @@ import java.util.List;
 @Data
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-@Table(name = "t_role")
-public class Role {
+@Table(name = "t_session")
+public class Session {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "cookie")
+    private String cookie;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @Column(name = "user_id")
+    private Integer userId;
+
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinTable(
-            name = "t_permission",
-            joinColumns = @JoinColumn(name = "role_id"),
-            inverseJoinColumns = @JoinColumn(name = "id")
+            name = "t_user",
+            joinColumns = @JoinColumn(name = "id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
     )
-    private List<Permission> permissionList;
+    private User user;
 }

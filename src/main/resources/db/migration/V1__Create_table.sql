@@ -23,6 +23,12 @@ create table t_permission(
     role_id integer
 );
 
+create table t_session(
+    id serial primary key,
+    cookie varchar (50),
+    user_id integer
+);
+
 insert into t_user(id, username , password) values (1,'xiaohong' , '123456');
 insert into t_user(id, username , password) values (2,'zhangsan' , '123456');
 insert into t_user(id, username , password) values (3,'lisi' , '123456');
